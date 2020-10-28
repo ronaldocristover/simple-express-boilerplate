@@ -35,13 +35,12 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    console.log(req.body);
     let users = new User({
         name: req.body.name,
     });
     users = await users.save();
 
-    res.send(users);
+    return wrapper.get(res, 200, users, users.length, MESSAGE.DATA_FOUND);
 });
 
 module.exports = router;

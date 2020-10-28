@@ -19,6 +19,15 @@ const pagination = (res, data, req, totalData, code, message) => {
     });
 };
 
+const get = (res, code, content, total, message) => {
+    res.send(code, {
+        content: content,
+        totalItems: total,
+        message: message,
+    });
+};
+
 module.exports = {
     pagination,
+    get
 };
